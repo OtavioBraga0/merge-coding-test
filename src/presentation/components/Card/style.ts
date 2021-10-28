@@ -13,6 +13,11 @@ export const Card = styled.div`
 
   & > img {
     border-radius: 5px;
+    display: none;
+
+    &[data-loaded="true"] {
+      display: block;
+    }
   }
 
   & > div {
@@ -81,4 +86,36 @@ export const Rating = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
+`;
+
+export const SkeletonLoading = styled.div`
+  height: 100%;
+  width: 100%;
+  background-color: #fafafa;
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -15rem;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-image: linear-gradient(
+      to right,
+      transparent 0%,
+      #e8e8e8 50%,
+      transparent 100%
+    );
+    animation: load 1s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  }
+
+  @keyframes load {
+    from {
+      left: -15rem;
+    }
+    to {
+      left: 100%;
+    }
+  }
 `;

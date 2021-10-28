@@ -40,11 +40,14 @@ export const Search = styled.div`
     width: 25rem;
 
     border-radius: 0.5rem;
+
+    padding: 0 0.5rem;
   }
 
   & > select {
     height: 3rem;
     width: 10rem;
     border-radius: 0.5rem;
+    padding: 0 0.5rem;
   }
 `;

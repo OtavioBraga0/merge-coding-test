@@ -26,9 +26,6 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "server": "json-server data.json -p 4000 --no-cors "
   },
   "eslintConfig": {

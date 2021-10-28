@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 import { Movie } from "../../../domain/entities/movie";
-import { Card, Details, Rating } from "./style";
+import { Card, Details, Rating, SkeletonLoading } from "./style";
 
 import { AiFillStar } from "react-icons/ai";
 
 export const CardComponent: React.FC<Movie> = (props: Movie) => {
+  const [imageLoaded, setImageLoaded] = useState<boolean>(false);
+
   return (
     <Card>
-      <img src={props.image} alt={props.fullTitle} />
+      <img
+        src={props.image}
+        alt={props.fullTitle}
+        onLoad={() => setImageLoaded(true)}
+        data-loaded={imageLoaded}
+      />
+      {!imageLoaded && <SkeletonLoading />}
       <Details>
         <h3>{props.title}</h3>
         <Rating>
